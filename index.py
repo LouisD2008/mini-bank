@@ -34,7 +34,6 @@ class BankAccount:
     def calculate_expected_return(self, years):
         if years < 0:
             return None
-        # Apply tax on returns (20%)
         A = self.balance * ((1 + self.interest_rate) ** years)
         taxed_A = A * 0.8
         return taxed_A
@@ -58,11 +57,15 @@ class BankAccount:
 
 
 def save_accounts_to_csv(accounts, filename="accounts.csv"):
-    with open(filename, "w", newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(["Account Number", "Owner", "Balance", "Interest Rate"])
-        for acc in accounts.values():
-            writer.writerow(acc.to_csv_row())
+    try:
+        with open(filename, "w", newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(["Account Number", "Owner", "Balance", "Interest Rate"])
+            for acc in accounts.values():
+                writer.writerow(acc.to_csv_row())
+        print(f"[INFO] Saved {len(accounts)} account(s) to: {os.path.abspath(filename)}")
+    except Exception as e:
+        print(f"[ERROR] Failed to save accounts: {e}")
 
 
 def load_accounts_from_csv(filename="accounts.csv"):
@@ -76,6 +79,7 @@ def load_accounts_from_csv(filename="accounts.csv"):
                 accounts[acc.account_number] = acc
                 if acc.account_number >= BankAccount.account_counter:
                     BankAccount.account_counter = acc.account_number + 1
+        print(f"[INFO] Loaded {len(accounts)} account(s) from {filename}")
     return accounts
 
 
@@ -90,6 +94,7 @@ def transfer(from_acc, to_acc, amount):
 
 def main():
     accounts = load_accounts_from_csv()
+
     while True:
         print("\nWelcome to Enhanced Student Bank!")
         print("1. Create account")

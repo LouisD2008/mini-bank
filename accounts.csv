@@ -1,2 +1,5 @@
 Account Number,Owner,Balance,Interest Rate,Username,Password Hash
-1000,Louis,20.0,0.01,louis_user,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd74b...
+1000,Louis,50.0,0.01,louis_user,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd74b...
+1001,noah,70.0,0.01,Noah_Le_Goat,c15b39bc2f0296067302fce2cfa924a1642ab7695049715adb64892aa241ab0d
+1002,Ethan,100.0,0.01,Ethan123,fece8d8b4601db0e484d46d56b39b087791e477088db43131bdc0316c0fb8f2b
+1003,Noahm,30.0,0.01,noah,cf3a3bbe331c3950d16a8e9917c5bb8340e7c0ef917da25d4a96f92d074bce05

@@ -6,16 +6,6 @@ import hashlib
 class BankAccount:
     account_counter = 1000  # Static variable
 
-    def __init__(self, owner, balance, interest_rate, username, password_hash):
-        self.owner = owner
-        self.account_number = BankAccount.account_counter
-        BankAccount.account_counter += 1
-        self.balance = balance
-        self.interest_rate = interest_rate / 100
-        self.transactions = []
-        self.username = username
-        self.password_hash = password_hash
-
     def deposit(self, amount):
         if amount > 0:
             self.balance += amount
